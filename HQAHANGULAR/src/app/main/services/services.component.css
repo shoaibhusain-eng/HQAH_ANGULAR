@@ -1,0 +1,30 @@
+mat-card { padding: 0 !important;  }
+
+
+.section { padding-top: 80px; padding-bottom: 80px; position: relative; }
+
+.bg-overlay {
+    background: linear-gradient(to right,  rgb(61, 140, 177) , rgb(91, 63, 192));
+    opacity: 0.9;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0; 
+}
+
+
+
+.bg-pattern-effect { position: absolute; bottom: 0px; left: 0px; right: 0px; }
+.bg-pattern-effect img { max-width: 100%; }
+
+
+ul.my-breadcrumb { padding: 10px 16px; list-style: none; text-align: center;}
+ul.my-breadcrumb li { display: inline; font-size: 18px; }
+ul.my-breadcrumb li+li:before { padding: 8px; content: "/\00a0"; }
+ul.my-breadcrumb li a {
+    color: rgb(241, 208, 97);
+    text-decoration: none;
+}

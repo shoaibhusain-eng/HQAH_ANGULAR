@@ -1,0 +1,243 @@
+<div id="edit-tem" class="page-layout simple left-sidebar inner-sidebar inner-scroll">
+
+    <mat-toolbar class="p-0 mat-elevation-z1 mat-toolbar1">
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+
+            <div class="px-8 px-md-16">
+                <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        settings
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        SETTINGS
+                    </span>
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        navigate_next
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        SERVICE PAGE
+                    </span>
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        navigate_next
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        EDIT
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </mat-toolbar>
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- HEADER -->
+        <div class="header accent p-8 p-sm-8 custom-header" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-xs="row"
+            fxLayoutAlign.gt-xs="space-between center">
+
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+
+                <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/apps/e-commerce/products'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <div class="product-image mr-8 mr-sm-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                    <!-- <img *ngIf="product.images[0]" [src]="product.images[0].url"> -->
+                    <!-- <img [src]="'assets/images/ecommerce/product-image-placeholder.png'"> -->
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start"
+                    [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    <div class="h2">
+                        {{servicePageData.title | titlecase}}
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span>Edit Template</span>
+                    </div>
+                </div>
+
+
+                <div fxLayout="column" fxLayoutAlign="start start"
+                    [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+
+                    <mat-form-field appearance="fill" class="tmp-select">
+                        <mat-label>Template</mat-label>
+                        <mat-select (selectionChange)="onTmpSelect($event)">
+                            <mat-option *ngFor="let tmp of templateList" [value]="tmp._id">{{tmp.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start"
+                    [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    <div style="
+               float: right;
+               margin: 23px !important;
+           ">
+                        <button mat-raised-button (click)="preview()"
+                            class="add-product-button fuse-white mt-24 mt-md-0 primary">Preview
+                            <!-- <a target="_blank" [attr.href]="'http://localhost:4200/home/service?id=' + (servicePageData._id)  + '&title=' + (servicePageData.title)">Priview</a> -->
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- / HEADER -->
+
+
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <!-- CONTENT -->
+            <div class="content">
+
+
+                <!-- <form [formGroup]="employeeForm" class="product w-100-p" fxLayout="column" fxFlex> -->
+                <mat-tab-group [selectedIndex]="1" [formGroup]="servicePageForm"
+                    (selectedTabChange)="onTabClick($event)">
+
+                    <mat-tab label="Detail" id="tab1">
+                        <form class="mat-card mat-elevation-z4 p-24 mr-24" fxLayout="column" fxLayoutAlign="start"
+                            fxFlex="1 0 auto" formGroupName="basicDetail">
+
+                            <div class="h2 mb-24">Paget Details</div>
+
+                            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                                    <mat-label>Title</mat-label>
+                                    <input matInput formControlName="title">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="50">
+                                    <mat-label>Title Desc</mat-label>
+                                    <input matInput formControlName="title_desc">
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                                    <mat-label>Sub Title Title Desc</mat-label>
+                                    <input matInput formControlName="sub_title">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="50">
+                                    <mat-label>Sub Title Desc</mat-label>
+                                    <input matInput formControlName="sub_desc">
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+
+                                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="100">
+                                    <mat-label>Meta Data Title</mat-label>
+                                    <input matInput formControlName="meta_data_title">
+                                </mat-form-field>
+
+                            </div>
+
+                            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="100">
+                                    <mat-label>Meta Data Title Desc</mat-label>
+                                    <!-- <input matInput formControlName="meta_data_desc"> -->
+                                    <textarea matInput formControlName="meta_data_desc"></textarea>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+
+                                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                                    <mat-label>Parent Id</mat-label>
+                                    <mat-select formControlName="parent_id">
+                                        <mat-option [value]="1">1</mat-option>
+                                        <mat-option [value]="2">2</mat-option>
+                                        <mat-option [value]="3">3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+
+                                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                                    <mat-label>Level</mat-label>
+                                    <mat-select formControlName="level">
+                                        <mat-option [value]="1">1</mat-option>
+                                        <mat-option [value]="2">2</mat-option>
+                                        <mat-option [value]="3">3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+
+                                <button mat-button color="primary" class="mr-8" aria-label="Cancel" matTooltip="Cancel"
+                                    (click)="getServicePageInFo()">
+                                    CANCEL
+                                </button>
+                                <button (click)="tmpDetailSubmit('basicDetail')" mat-button color="primary"
+                                    class="save-button" aria-label="SAVE">
+                                    SAVE
+                                </button>
+                            </div>
+                        </form>
+                    </mat-tab>
+
+                    <mat-tab label="Layouts" id="tab2">
+
+                        <div *ngIf="showEditor" class="row " style="width: 100%;">
+
+                            <div class="col-lg-12">
+
+                                <form formGroupName="tmpDetail" style="width: 100%;">
+                                    <ckeditor formControlName="html" [config]="config" allowedContent=true
+                                        debounce="500">
+                                    </ckeditor>
+                                </form>
+                            </div>
+
+
+                            <div class="col-lg-12">
+
+                                <form formGroupName="tmpDetail" style="width: 100%;">
+                                    <ckeditor formControlName="html" [config]="config" allowedContent=true
+                                        debounce="500">
+                                    </ckeditor>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-3">
+
+                                <div class="tem-button">
+                                    <button mat-button class="mr-8" aria-label="Cancel" matTooltip="Cancel"
+                                        (click)="getServicePageInFo()">
+                                        CANCEL
+                                    </button>
+                                    <button (click)="tmpDetailSubmit('tmpDetail')" mat-button class="save-button"
+                                        aria-label="SAVE">
+                                        SAVE
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </mat-tab>
+
+
+                </mat-tab-group>
+
+                <!-- </form> -->
+
+
+
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+</div>

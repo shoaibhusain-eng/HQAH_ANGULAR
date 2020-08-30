@@ -1,0 +1,607 @@
+<div class="container-fluid"
+    style="background-image: url('assets/images/homebg1.png');background-color: rgb(131, 166, 241);  background-size: 100% 100%;">
+    <app-service-nav-bar></app-service-nav-bar>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-6 padding-t-30">
+                <img src="assets/images/21.png" width="100%">
+            </div>
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form [formGroup]="assignmentForm">
+                        <mat-card-title class="offer"
+                            style="background-image: url('assets/images/bgpn.png'); background-size: 100% 100%;">Upto
+                            50% OFF</mat-card-title><br>
+                        <div class="assignment-form">
+                            <div class="bannerForm">
+                                <b>
+                                    <mat-card-title>Place Assignment Order</mat-card-title>
+                                </b>
+                            </div>
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <mat-form-field class="order-fields">
+                                            <input matInput placeholder="Name*" formControlName="name">
+                                        </mat-form-field>
+                                        <mat-form-field class="country-code">
+
+                                            <mat-select placeholder="code" formControlName="phone_code" [(ngModel)]="selectedCountry">
+                                                <mat-option *ngFor="let dial of dialCodes" [value]="dial.dial_code">
+                                                    {{dial.dial_code+' '+dial.name}}
+                                                </mat-option>
+                                            </mat-select>
+
+                                        </mat-form-field>
+                                        <mat-form-field class="number">
+                                            <input matInput placeholder="Phone No*." formControlName="phone">
+                                        </mat-form-field>
+                                        <mat-form-field class="order-fields">
+                                            <mat-select placeholder="Subject*" formControlName="subject">
+                                                <mat-option value="">Select Subject</mat-option>
+                                                <mat-option *ngFor="let sub of subjectList" value={{sub.subValue}}>
+                                                    {{sub.subTitle}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field class="order-fields">
+                                            <mat-select placeholder="WordCount" formControlName="word_count">
+                                                <mat-option value="">Select Page Count</mat-option>
+                                                <mat-option *ngFor="let page of wordCount" value="{{page.countValue}}">
+                                                    {{page.countTitle}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-form-field class="order-fields">
+                                            <input matInput placeholder="Email*" formControlName="email">
+                                        </mat-form-field>
+                                        <mat-form-field class="order-fields">
+                                            <input matInput placeholder="Country*" formControlName="country">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="order-fields">
+                                            <input matInput [owlDateTime]="dt2" placeholder="Deadline*"
+                                                formControlName="due_date" [owlDateTimeTrigger]="dt2">
+                                            <owl-date-time #dt2></owl-date-time>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="order-fields">
+                                            <mat-select placeholder="Reference Style" formControlName="reference_style">
+                                                <mat-option value="">Select Reference Style</mat-option>
+                                                <mat-option value="APA">APA</mat-option>
+                                                <mat-option value="MLA">MLA</mat-option>
+                                                <mat-option value="Oxford">Oxford</mat-option>
+                                                <mat-option value="Harward">Harvard</mat-option>
+                                                <mat-option value="Chicago">Chicago</mat-option>
+                                                <mat-option value="Others">Others</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <mat-form-field style="width: 100%;">
+                                            <textarea matInput placeholder="Message"
+                                                formControlName="message"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="custom-file">
+                                            <img (click)="UplodBtn.click()" class="upload_icon cursor_item"
+                                                src="/assets/images/upload_icon.png" /><br>
+                                            <input #UplodBtn type="file"
+                                            name="file" class="custom-file-input documents-file-input"
+                                            accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
+                                             style="display: none;" (change)="documentFileUpload($event)" multiple>
+                                            <span for="logo" class="file-name-span">
+                                                <span class="custom-filename-span file_name" data-filetype="">Choose
+                                                    File...
+                                                </span>
+                                            </span>
+                                            <span (click)="resetFile()" title="Reset" class="reset_file cursor_item"><i
+                                                    class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <mat-checkbox matInput color="primary" formControlName="term_condition">Terms &
+                                            Conditions* </mat-checkbox>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-12"> -->
+                                <!-- <div class="card mt-3">
+                                            <div class="card-body"> -->
+                                <!-- <div #recaptcha ></div> -->
+                                <!-- </div>
+                                    </div> -->
+                                <!-- </div> -->
+
+                                <button class="btn btn-primary  form-btn" type="submit"
+                                    (click)="onSubmit()">Submit</button>
+                            </mat-card-content>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="constainer">
+    <div class="container-fluid" style="background-color: white; margin-top: 20px;">
+        <div class="container text-center">
+            <h1 _ngcontent-wfj-c5="" class="section-title text-center padding-t-30">Our Exceptional Services</h1>
+            <div _ngcontent-wfj-c5="" class="section-title-border margin-t-20"></div>
+            <p _ngcontent-wfj-c5="" class="section-subtitle text-muted text-center padding-t-30 font-secondary">
+                Some of the major domains where we craft, think and create the most exemplary online assignment writing
+                service and add a value for our client.
+            </p>
+
+            <div class="row">
+                <div class="col-sm-4 ">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa "><img src="/assets/images/Dissertation Help.png"
+                                    width="80px"></span>
+                        </a>
+                    </div>
+                    <h4>Dissertation Writing Help</h4>
+                    <p class="section-subtitle  text-muted text-center font-secondary">
+                        Our Thesis or a Dissertation writing xperts are capable of
+                        delivering original write-ups based upon deep primary and
+                        secondary research on any particular topic.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa"><img src="/assets/images/Essay Writing Help.png"
+                                    width="70px"></span>
+                        </a>
+                    </div>
+                    <h4>Essay Writing Help</h4>
+                    <p class="section-subtitle text-muted text-center font-secondary">
+                        Using our Essay writing help, you can overcome the complexity
+                        involved in writing an essay and getting good grades. Our essay
+                        writing scholars are well versed with writing and formatting
+                        excellent essays.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa"><img src="/assets/images/Case Study Writing help.png"
+                                    width="70px"></span>
+                        </a>
+                    </div>
+                    <h4>Case Study Writing Help</h4>
+                    <p class="section-subtitle text-muted text-center font-secondary">
+                        Case studies are frequently being used during studies to make
+                        students learn how a hypothetical scenario or case may affect a
+                        community or person in actual life.Our xperts possess all the
+                        knowledge to write assignments based on case studies.
+                    </p>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa"><img src="/assets/images/Online Coursework-quiz.png"
+                                    width="70px"></span>
+                        </a>
+                    </div>
+                    <h4>Online Coursework/Quiz Help</h4>
+                    <p class="section-subtitle text-muted text-center font-secondary">
+                        Let our subject xperts handle your online coursework and quiz
+                        and help you get High Grades.</p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa"><img src="/assets/images/Online Assignment.png"
+                                    width="70px"></span>
+                        </a>
+                    </div>
+                    <h4>Online Assignment Help </h4>
+                    <p class="section-subtitle text-muted text-center font-secondary">
+                        We provide a one-stop solution for all your urgent or necessary
+                        assignments. Our inhouse Xperts hold vast knowledge and
+                        industry expertise, to help you in every niche of subject from K-12
+                        to PhD level around the world. Submit, sit-back and Relax! And
+                        let us help you secure good grades.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social">
+                        <a href="facilities.html" class="link" target="_parent">
+                            <span class="fa1 fa2 fa"><img src="/assets/images/Research Proposal.png"
+                                    width="70px"></span>
+                        </a>
+                    </div>
+                    <h4>Research Proposal Writing Help</h4>
+                    <p class="section-subtitle text-muted text-center font-secondary">
+                        Research proposal describes detailed research methodology of a
+                        research paper which is consistent with technical or academic
+                        sector requirements. Our Inhouse research proposal writing
+                        xperts can match all your research requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-service-container></app-service-container>
+
+    <section class="section section-lg bg-web-desc">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-white">Score Your Dream Grade Today</h2>
+                    <p class="padding-t-15 home-desc">We welcome you to a center of superior online
+                        assignment help academic writing services. Place order and Let us boost your grade.</p><a
+                        class="btn  margin-t-30 waves-effect waves-light mb-5" style=" background-color: #ffbf10;"
+                        href="#">View Plan &amp; Offers</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-pattern-effect"><img alt="" src="assets/images/bg-pattern.png"></div>
+    </section>
+
+    <div class="container-fluid" style="padding: 10px;padding-bottom: 100px;">
+        <div class="container">
+            <div>
+                <h1 class="section-title text-center padding-t-30">Our Features</h1>
+                <div class="section-title-border margin-t-20"></div>
+                <p class="section-subtitle text-muted text-center font-secondary padding-t-30">
+                    What makes our clients choose us.
+                </p>
+                <img class="margin-t-20" src="/assets/images/Orange and Beige .png" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <!-- <ng-template #previewBox>
+        <div class="previewBox-img">
+            <img src="assets/images/popup_subscribe.png" alt="sbr" width="600px" height="500px">
+            <div class="centered">
+                <button class="btn btn-warning" type="button" (click)="onSubmit()"> Subscribe + Order </button>&nbsp;
+                <span> Or</span>&nbsp;
+                <button class="btn btn-warning" type="button" (click)="onSubmit()"> Order Now </button>
+            </div>
+        </div>
+    </ng-template> -->
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">High quality Assignment Help Team
+                        is Here For You</h1>
+                    <div class="section-title-border margin-t-20"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="section-subtitle text-muted font-secondary padding-t-30">
+                        Struggling with your studies or assignments? Confused which online assignment help service
+                        to opt for? Don’t worry friends! You have just landed by at the right online assignment help
+                        company. Yes, you heard that right. High Quality Assignment Helps is the first ever company
+                        in this service that will not only assist you with writing assignments, but will share the
+                        burden of your studies and help you at any place where you stuck while making your assignments.
+                        Rather than taking assistance from an un-scholar like your friend or a neighbour,
+                        you can just rely upon our professional xperts who are well experienced in writing up
+                        assignments or giving you the right direction of how to conduct an assignment.
+                    </p>
+
+                </div>
+                <div class="col-md-12">
+                    <p class="section-subtitle text-muted font-secondary">We are prepared to meet your demands. Our
+                        professional xperts go through a vigorous screening test based on their resume, certain
+                        qualifications test, trial assignment, and
+                        previous experience, and are then considered qualified to meet up your demands. And so,
+                        does our other support management team that are tested and trained based on scenario.
+                        That&#39;s how you know that can lay your trust in us and take the best online assignment help
+                        service.</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="section-subtitle text-muted font-secondary padding-t-30">
+                        Writing assignments are truly a burden on a majority of students’ head, that seems to be
+                        merely a task which has to be submitted within a due date anyhow. Often it has been evident
+                        that the universities tend to set a minimum marking criterion to grade the students on their
+                        submitted assignments. These criteria requires the student to take utmost care of formatting,
+                        grammar, structure of language, avoiding plagiarism and much more. Some students often
+                        tend to generate brilliant ideas however find it difficult to frame them in a meaningful
+                        structure and are unable to make use of proper grammar. Moreover, majority of students are
+                        often under considerable burden because of the language barrier and part-time jobs. They are
+                        eventually left to struggle with all these challenges while simultaneously managing their
+                        sources of income. But what if someone just told you that there exists a much better way to
+                        shift all your burden upon someone who is willing to take up your tasks and is well learned in
+                        that particular field. Don’t be amazed, yes you read it right! Now you can just rely upon
+                        someone more professional and well experienced in writing up assignments. This is where
+                        our community of assignment writing professional Xperts comes to your rescue!
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="assets/images/5.png" width="100%">
+                </div>
+                <div class="col-md-12">
+                    <p class="section-subtitle text-muted font-secondary padding-t-20">
+                        Our
+                        assignment professional writers excel in creating ideas, conducting peer reviews and
+                        eventually preparing the draft in a specified format as required for your assignment. You can
+                        easily lay your trust upon them as they are educated and experienced, thus there remains no
+                        scope of creating a poor-quality work.
+                        Still confused? Just read about the exceptional services we offer!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid text-center"
+        style="background-image: url('assets/images/bgpn.png'); background-size: 100% 100%; background-color: rgb(86, 89, 235); padding-top: 8px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="rotate_boxes_home">
+                        <div class="rotate_boxes_icon">
+                            <span class=" fa3 fa fa-thumbs-up"></span>
+                        </div>
+                        <p>4.9/5</p>
+                        <p>5 Star Rating</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="rotate_boxes_home">
+                        <div class="rotate_boxes_icon">
+                            <span class=" fa3 fa fa-truck"></span>
+                        </div>
+                        <p>6582</p>
+                        <p>Orders Deliver</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="rotate_boxes_home">
+                        <div class="rotate_boxes_icon">
+                            <span class=" fa3 fa fa-graduation-cap"></span>
+                        </div>
+                        <p>437</p>
+                        <p>PhD Experts</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="rotate_boxes_home">
+                        <div class="rotate_boxes_icon">
+                            <span class=" fa3 fa fa-users"></span>
+                        </div>
+                        <p>24x7</p>
+                        <p>Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">we have got it all covered for you</h1>
+                    <div class="section-title-border margin-t-20"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="section-subtitle text-muted font-secondary padding-t-30">
+                        The expense of such services is one of the aspects that haunt students the most. The majority
+                        of students tend to believe that obtaining online writing assistance is an expensive affair.
+                        However, we at High Quality Assignment Help truly understand the burden that is laid upon
+                        students as majority of them are engaged in part time jobs in order to bear their living
+                        expense. Thus, in view of the students’ budget left to avail an online assignment help,
+                        we have created the most reasonable price plan such that students would not give a second
+                        though while choosing our services.
+                    </p>
+                    <p class="section-subtitle text-muted font-secondary padding-t-20">
+                        The students need not to fear more about the affordability of such services and can easily start
+                        benefiting from the cheapest online assignment assistance from the Xperts to avail High
+                        Quality Assignment Help. Moreover, to ensure an improved availability we have our Xperts
+                        from round the globe including Countries like UK, Australia, US, Canada and much more. 
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="assets/images/6.png" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">Work Process</h1>
+                    <div class="section-title-border margin-t-20"></div>
+                    <p class="section-subtitle text-muted text-center font-secondary padding-t-30">Just follow 3 simple
+                        basic steps to get the best online assignment help solution.</p>
+                </div>
+            </div>
+            <div class="row margin-t-50">
+                <div class="col-lg-3 plan-line">
+                    <div class="text-center process-box"><i class="material-icons">edit</i>
+                        <h4 class="padding-t-15">Tell us what you need</h4>
+                        <p class="text-muted">Submit your assignment requirements and tell us what
+                            you need.</p>
+                    </div>
+                </div>
+                <div class="col-lg-1 plan-line"><i style=" color: #ffbf10;;padding-top: 60px;"
+                        class="material-icons">keyboard_arrow_right</i></div>
+                <div class="col-lg-4 plan-line">
+                    <div class="text-center process-box"><i class="material-icons">attach_money</i>
+                        <h4 class="padding-t-15">Make payment</h4>
+                        <p class="text-muted">Make the initial payment and get your work started.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-1 plan-line"><i style="color: #ffbf10;; padding-top: 60px;"
+                        class="material-icons">keyboard_arrow_right</i></div>
+                <div class="col-lg-3">
+                    <div class="text-center process-box">
+                        <i class="material-icons">assignment</i>
+                        <h4 class="padding-t-15">Get high quality assigments</h4>
+                        <p class="text-muted">Sit back, relax! get your assignment within promised
+                            deadlines.</p>
+                    </div>
+                </div>
+                <div class="text-center mx-auto">
+                    <a class="btn btn-custom waves-light waves-effect margin-t-50" routerlink="#"
+                        style=" background-color: #ffbf10;" href="/%23 ">Get Started <i
+                            class="mdi mdi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="section-title text-center margin-t-20">Our Assignment Help Xperts Are Best In This
+                    Business</h1>
+                <div class="section-title-border margin-t-20"></div>
+                <p class="section-subtitle text-muted font-secondary margin-t-20">
+                    ‘Let’s grow your grades together’ being our company motto- our community of professional
+                    assignment help xperts have prepared their own standards to achieve excellence so that no
+                    stone is left unturned while providing you with that perfect solution to your assignment. We
+                    strongly believe that each student hold that dream of achieving excellence throughout their
+                    academic curriculum followed by their much-awaited successful professional lives. Let’s
+                    together make those efforts in transforming those dreams into a reality! Such criteria for
+                    success are followed by each member of our team. Academic Xperts, Proof-reading
+                    Xperts and additional support staff undergo rigorous entrance exams and are periodically
+                    probed during their tenure of employment in order to successfully continue to work as a
+                    member of our top-notch community.
+                    We strive in delivering the best possible service to make sure that our clients are able to
+                    submit their assignments in due time. While you are taking that nap after a stressful day at
+                    college our xpert is busy conducting extensive research and completing your assignment. Just
+                    sit back and relax! Transfer your workload on us and order your assignment now.</p>
+            </div>
+            <div class="col-md-6">
+                <h1 class="section-title text-center margin-t-20">Order Now To Avail Our Unique Services</h1>
+                <div class="section-title-border margin-t-20"></div>
+                <p class="section-subtitle text-muted font-secondary margin-t-20">
+                    Our assignment writing service offers you impeccable grades efficiency at the most
+                    affordable rates. And this is the main reason why you should take advantage of our
+                    assignment help services. Over several years, we have been offering our programs to
+                    thousands of students. In the age of the Internet, we have community of proficient assignment
+                    writing in-house and external xperts from all across the world to meet any of your
+
+                    requirements at even the oddest hours. Still wondering why to choose us in front of other
+                    companies in the same industry? Let us summaries it for you what makes us unique
+                </p>
+                <ul class="section-subtitle text-muted font-secondary">
+                    <li>400 plus professional writing xperts who possess years of experience and the
+                        required skill set to complete your assignment as per the given requirements</li>
+                    <li>Our professional assignment writers ensure that the content written is authentic and
+                        original, thus deliver plagiarism free work always</li>
+                    <li>
+                        We have never missed a single deadline even how urgent the task was and thus have
+                        many permanent clients
+                    </li>
+                    <li>
+                        Out motto only define that how serious we are in helping student get the best grade
+                        by delivering highest quality work
+                    </li>
+                    <li>
+                        The best part about our service is our affordable prices, because we believe in
+                        charging a genuine amount and extend the best possible help
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="section bg-light pt-5" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">Blog</h1>
+                    <div class="section-title-border margin-t-20"></div>
+                    <p class="section-subtitle text-muted text-center font-secondary padding-t-30">
+                        Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+                        ocean class at a euismod mus luctus quam.
+                    </p>
+                </div>
+            </div>
+            <div class="row margin-t-30">
+                <div class="col-lg-4 blog-shadow">
+                    <div class="blog-box margin-t-30 "><img alt="" class="img-fluid" src="assets/images/blog/img-1.jpg">
+                        <div>
+                            <h5 class="mt-4 text-muted">UI &amp; UX Design</h5>
+                            <h4 class="mt-3"><a class="blog-title" href="">
+                                    Doing a cross country road trip </a></h4>
+                            <p class="text-muted">She packed her seven versalia, put her initial
+                                into the belt and made herself on the way..</p>
+                            <div class="mt-3"><a class="read-btn" href="">Read More <i
+                                        class="mdi mdi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 blog-shadow">
+                    <div class="blog-box margin-t-30 "><img alt="" class="img-fluid" src="assets/images/blog/img-2.jpg">
+                        <div>
+                            <h5 class="mt-4 text-muted">Digital Marketing</h5>
+                            <h4 class="mt-3"><a class="blog-title" href="">New exhibition at our Museum</a></h4>
+                            <p class="text-muted">Pityful a rethoric question ran over her cheek,
+                                then she continued her way.</p>
+                            <div class="mt-3"><a class="read-btn" href="">Read More <i
+                                        class="mdi mdi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 blog-shadow">
+                    <div class="blog-box margin-t-30"><img alt="" class="img-fluid" src="assets/images/blog/img-3.jpg">
+                        <div>
+                            <h5 class="mt-4 text-muted">Travelling</h5>
+                            <h4 class="mt-3"><a class="blog-title" href="">Why are so many people..</a></h4>
+                            <p class="text-muted">Far far away, behind the word mountains, far
+                                from the countries Vokalia and Consonantia.</p>
+                            <div class="mt-3"><a class="read-btn" href="">Read More <i
+                                        class="mdi mdi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-lg bg-get-start">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-12 text-center">
+                    <h1 class="get-started-title text-white">Let's Get Started</h1>
+                    <div class="section-title-border margin-t-20 bg-white"></div>
+                    <p class="section-subtitle font-secondary text-white padding-t-30">
+                        High Quality Assignment Help is a trusted name that is build up with the collaboration of
+                        professional Xperts offering assignment help, who excel in respective domains. HQAH
+                        provide the student with the assistance they require with the online assignment support for
+                        them to score exceptional grades in their academic courses. Our community of internal and
+                        external Xperts for all academic domains are the reason why we represent a reputed name in
+                        the community. Our project Xperts have outstanding writing skills and carry out a
+                        comprehensive approach towards their work completion to provide you with personalized
+                        online assistance.
+                    </p>
+                    <a class="btn  waves-effect margin-t-20 mb-4" style=" background-color: #ffbf10;" href="#">
+                        Place Order Now
+                        <i class="mdi mdi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>

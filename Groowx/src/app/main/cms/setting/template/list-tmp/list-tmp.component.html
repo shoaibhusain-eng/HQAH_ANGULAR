@@ -1,0 +1,155 @@
+<div id="list-tmp" class="page-layout simple left-sidebar inner-sidebar inner-scroll">
+
+    <mat-toolbar class="p-0 mat-elevation-z1 mat-toolbar1">
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+
+            <div class="px-8 px-md-16">
+                <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        settings
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        SETTINGS
+                    </span>
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        navigate_next
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        TEMPLETE
+                    </span>
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        navigate_next
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        LIST
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </mat-toolbar>
+
+
+    <mat-toolbar class="p-0 mat-elevation-z1 mat-toolbar2">
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+            <div class="px-8 px-md-16">
+                <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        pages
+                    </mat-icon>
+                    <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        Templete
+                    </span>
+                </div>
+            </div>
+            <div class="tab-separator"></div>
+            <div class="px-8 px-md-16">
+                <div class="filter-weapper mt-2 mt-sm-0">
+                    <mat-label>Sort </mat-label>
+                    <mat-select [(value)]="selectedColumn">
+                        <mat-option [value]="''"> By</mat-option>
+                        <mat-option *ngFor="let DC of displayedColumns" [value]="DC">{{DC}}</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="tab-separator"></div> -->
+        <div class="ml-sm-32" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+            <div class="search-wrapper mt-2 mt-sm-0">
+                <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon>search</mat-icon>
+                    <input (keyup)="filterTable($event.target.value)" placeholder="Search Employees">
+                </div>
+            </div>
+        </div>
+
+        <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+            <div class="px-8 px-md-16">
+                <button mat-raised-button (click)="addTemplete()"
+                    class="add-product-button fuse-white mt-24 mt-md-0 primary">
+                    <mat-icon>add_circle </mat-icon> <span> ADD NEW TEMPLETE</span>
+                </button>
+
+            </div>
+        </div>
+    </mat-toolbar>
+
+
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- CENTER -->
+        <div class="center p-24 pb-56 pr-sm-92" fusePerfectScrollbar>
+
+            <div>{{selectedColumn ? selectedColumn : 'Uncategorized'}}</div>
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <mat-table matSort (matSortChange)="sortData($event)" *ngIf="dataSource" class="user-table" #table
+                    [dataSource]="dataSource.template" [@animateStagger]="{value:'50'}" fusePerfectScrollbar
+                    matSortDisableClear>
+
+                    <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index"
+                        matColumnDef="{{disCol.alias}}">
+
+                        <mat-header-cell [mat-sort-header]="disCol.alias" *matHeaderCellDef
+                            [disabled]="disCol.alias === 'action' ? true : false">
+                            {{disCol.title}}
+                        </mat-header-cell>
+                        <mat-cell mat-cell *matCellDef="let element; let i = index">
+                            <!-- <p *ngIf="isRightColumn(disCol.alias)" class="text-truncate"> {{element[disCol.alias]}}</p> -->
+                            <p *ngIf="isRightColumn(disCol.alias)" class="text-truncate"> {{element[disCol.alias]}}</p>
+
+                            <p *ngIf="disCol.alias === 'created_by'" class="text-truncate">
+                                {{element[disCol.alias]['first_name']}} {{element[disCol.alias]['last_name']}}</p>
+
+                            <p *ngIf="disCol.alias === 'sno'" class="text-truncate"> {{ i + 1 }}</p>
+
+                            <p *ngIf="disCol.alias === 'updated_at'" class="text-truncate">
+                                {{ element[disCol.alias] | date: 'short' }}</p>
+
+                            <!-- <p *ngIf="disCol.alias === 'status'" class="text-truncate">
+                            <button mat-raised-button [color]="element.status === 'active' ? 'primary' : 'warn'"
+                                (click)="changeStatus(element)"
+                                [ngStyle]="{'background-color':element.status === 'active' ? 'rgb(27 57 241)' : '' }">
+                                {{ element.status | titlecase }}
+                            </button>
+                        </p> -->
+
+                            <p *ngIf="disCol.alias === 'status'" class="text-truncate">
+                                <mat-slide-toggle [checked]="element.status === 'Active' ? true : false"
+                                    (change)="changeStatus(element)"></mat-slide-toggle>
+                            </p>
+
+                            <p *ngIf="disCol.alias === 'action'" class="text-truncate">
+                                <mat-icon (click)="editTmp(element)" class="edit-icon action-icon s-16 bg-dark">
+                                    edit
+                                </mat-icon>
+                                <mat-icon (click)="deleteTmp(element)" class="action-icon s-16 bg-dark">delete
+                                </mat-icon>
+                            </p>
+                        </mat-cell>
+
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns1; sticky:true"></mat-header-row>
+                    <mat-row *matRowDef="let element; columns: displayedColumns1;" class="user-table" matRipple>
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator *ngIf="dataSource" [length]="dataSource.totalRecords"
+                    [pageIndex]="dataSource.currentPage" [pageSize]="dataSource.limit"
+                    [pageSizeOptions]="[5, 10, 15, 20]" (page)="getNextPage($event)">
+                </mat-paginator>
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CENTER -->
+
+    </div>
+    <!-- / CONTENT-->
+
+</div>

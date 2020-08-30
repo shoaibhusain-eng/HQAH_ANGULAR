@@ -1,0 +1,117 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar class="mat-accent m-0">
+        <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <span style="margin: auto;" class="title dialog-title">{{ dialogTitle }}</span>
+            <!-- <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button> -->
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div mat-dialog-content class="p-16 pb-0 m-0" fusePerfectScrollbar>
+
+        <form name="userForm" [formGroup]="userForm" class="event-form w-100-p" fxLayout="column" fxFlex>
+
+            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="first_name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="50">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="last_name">
+                </mat-form-field>
+            </div>
+
+            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="50">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput formControlName="job_title">
+                </mat-form-field>
+            </div>
+
+            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>Team</mat-label>
+                    <mat-select formControlName="team">
+                        <mat-option *ngFor="let team of teams;" [value]="team.id">{{ team.title }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>Level</mat-label>
+                    <mat-select formControlName="level">
+                        <mat-option [value]="1">Level 1</mat-option>
+                        <mat-option [value]="2">Level 2</mat-option>
+                        <mat-option [value]="3">Level 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>Check In</mat-label>
+                    <input matInput type="time" formControlName="check_in">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="pl-sm-8 no-errors-spacer" fxFlex="50">
+                    <mat-label>Check Out</mat-label>
+                    <input matInput type="time" formControlName="check_out">
+                </mat-form-field>
+            </div>
+
+            <div fxFlex="1 0 auto" fxLayout="column" fxLayout.gt-xs="row">
+                <mat-form-field appearance="outline" class="pr-sm-8" fxFlex="50">
+                    <mat-label>Joining Date</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker" formControlName="joining_date">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="pl-sm-8" fxFlex="50">
+                    <mat-label>Reporting to</mat-label>
+                    <input matInput formControlName="reporting_to">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100-p">
+                <mat-label>Employee Type</mat-label>
+                <mat-select formControlName="employee_type">
+                    <mat-option [value]="'full_time'">Full Time</mat-option>
+                    <mat-option [value]="'part_time'">Part Time</mat-option>
+                    <mat-option [value]="'intern'">Intern</mat-option>
+                    <mat-option [value]="'contractor'">Contractor</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+
+    </div>
+
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+
+        <button mat-button color="primary" class="mr-8" (click)="matDialogRef.close()" aria-label="Cancel"
+            matTooltip="Cancel">
+            CANCEL
+        </button>
+
+        <button *ngIf="action !== 'edit'" mat-button color="primary" class="save-button"
+            (click)="matDialogRef.close({type: 'add', data: userForm.value})" [disabled]="userForm.invalid"
+            aria-label="ADD">
+            ADD
+        </button>
+
+        <button *ngIf="action === 'edit'" mat-button color="primary" class="save-button"
+            (click)="matDialogRef.close({type: 'edit', data: userForm.value})" [disabled]="userForm.invalid"
+            aria-label="SAVE">
+            SAVE
+        </button>
+
+    </div>
+</div>

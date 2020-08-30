@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <form action="">
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm">
+              <div class="input-group search-assignment">
+                <input type="search" placeholder=" Search Your Assignment Question/Code Here..."
+                  aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                  <button id="button-addon1" type="submit" class="btn btn-link text-primary">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item nav-service">
+          <a class="nav-link nav-height dropdown1">
+            <button class="dropbtn">
+              Services <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="container dropdown1-content1">
+              <div class="row">
+                <div class="col-md-3" *ngFor="let title of serviceTitle; let i = index;">
+                  <a *ngFor="let link of title" (click)="onLinkClick(link)">{{link.title}}</a>
+                </div>
+              </div>
+              <!-- <div class="container">
+                  <img src="/assets/images/25_percnt_off.jpg" alt="discount" width="100%" height="285px">
+                </div> -->
+            </div>
+          </a>
+        </li>
+        <li class="nav-item nav-service">
+          <a class="nav-link nav-height dropdown3">
+            <button class="dropbtn">
+              Tools <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown3-content3" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/home/coming-soon">Proofreading + Auditing</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Quality Check + Editing</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Plagiarism Checker</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Face To Face Session</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Grammar Checker</a>
+            </div>
+          </a>
+        </li>
+
+        <!-- Mobile dropdown start -->
+        <li class="nav-item mobile-dropdown">
+          <mat-expansion-panel class="expansion-panel">
+            <mat-expansion-panel-header class="panel-header">
+              <mat-panel-title>
+                Services
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-panel-content">
+              <div class="row">
+                <div class="col-md-3" *ngFor="let title of serviceTitle; let i = index;">
+                  <a *ngFor="let link of title[i]" href="#">{{link.title}}</a>
+                </div>
+                <!-- <div class="col-md-3">
+                    <a href="#">Online Coursework/Quiz Help</a>
+                    <a href="#">School Home-Work Help</a>
+                    <a href="#">Lesson Plan Writing Help</a>
+                    <a href="#">CDR Writing Help</a>
+                    <a href="#">Research Proposal/ Plan Writing Help</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#">Management Assignment Help</a>
+                    <a href="#">Engineering Assignment Help</a>
+                    <a href="#">Law Assignment Help</a>
+                    <a href="#">Nursing Assignment Help</a>
+                    <a href="#">Design & Software Assignment Help</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#">IT Assignment Help</a>
+                    <a href="#">Humanities Assignment Help</a>
+                    <a href="#">Statistics Assignment Help</a>
+                    <a href="#">Essay Writing Help</a>
+                    <a href="#">Finance/Accounts Assignment Help</a>
+                  </div> -->
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </li>
+        <li class="nav-item mobile-dropdown">
+          <mat-expansion-panel class="expansion-panel">
+            <mat-expansion-panel-header class="panel-header1 ">
+              <mat-panel-title class="tools">
+                Tools
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-panel-content">
+              <a class="dropdown-item" routerLink="/home/coming-soon">Proofreading + Auditing</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Quality Check + Editing</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Plagiarism Checker</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Face To Face Session</a>
+              <a class="dropdown-item" routerLink="/home/coming-soon">Grammar Checker</a>
+            </div>
+          </mat-expansion-panel>
+        </li>
+        <!-- mobile-dropdown end -->
+
+        <li class="nav-item nav-service">
+          <a routerLink="/services/free-sample" class="nav-link nav-height">
+            <button class="dropbtn" routerLink="/home/coming-soon"> Free Samples</button>
+          </a>
+        </li>
+        <li class="nav-item nav-item-other">
+          <a routerLink="/services/instant-answer" class="nav-link nav-height">
+            <button class="dropbtn" routerLink="/home/coming-soon">Instant Answer</button>
+          </a>
+        </li>
+        <li class="nav-item nav-item-other">
+          <a class="nav-link nav-height ">
+            <button class="dropbtn" routerLink="/home/coming-soon">Offers</button>
+          </a>
+        </li>
+        <li class="nav-item nav-item-other">
+          <a class="nav-link nav-height reviewMenuWrp">
+            <span class="reviewInw">4.9</span>
+            <span class="reviewIcon">
+              <span>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </span><br>
+              <span class="white-font">
+                Reviews
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item nav-item-other">
+          <a class="nav-link nav-height lnk_order_now1" routerLink="/home/coming-soon">Order Now</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

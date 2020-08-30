@@ -1,0 +1,71 @@
+
+.navbar{ background-size: 100% 100%; padding: 0; }
+.navbar-light .navbar-toggler { color: rgba(0, 0, 0, 0.5); border-color: rgba(0, 0, 0, 0.1); margin: 10px; }
+.form-control:focus { box-shadow: none;}
+.form-control-underlined {  border-width: 0; border-bottom-width: 1px; border-radius: 0; padding-left: 0; }
+.form-control::placeholder { font-size: 0.95rem; color: #aaa; font-style: italic; }
+
+.p-1{ margin-top: 10px; margin-bottom: 10px; }
+.search-assignment{ margin-left: 3px; padding: 0; width: 100%;}
+
+.nav-link{ margin: 0; padding: 0;}
+.dropbtn{ height: 70px; padding: 0;}
+.lnk_order_now1{ padding-top: 6px; margin-top: 16px; padding-bottom: 6px;}
+
+.dropdown3-content3 a{ color: black; padding-top: 10px; padding-bottom: 10; border-bottom: 1px solid gray; }
+.dropdown3-content3 a:hover{ background-color: rgb(49, 97, 202); color: white;}
+
+a.reviewMenuWrp { padding: 7px 20px 0 0; margin-top: 10px; }
+span.reviewInw { padding: 5px 5px;  vertical-align: bottom; background: #31b8a8; border-radius: 4px; margin-right: 4px; color: #fff; }
+a.reviewMenuWrp span { display: inline-block; }
+a.reviewMenuWrp .reviewIcon { line-height: normal; vertical-align: sub; font-family: Lato,sans-serif; font-weight: 400; font-size: 14px; color: gold; }
+.nav-item a button{ border: none; outline: none;  background-color: inherit;  color: white;}
+
+
+.dropdown1-content1 { font-size: 15px; display: none; position: absolute; background-color: #f9f9f9; width: 100%; left: 0; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; right: 0;}
+.dropdown1:hover .dropdown1-content1 { display: block;}
+.col-md-3 a { float: none; color: black; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid gray; padding-top: 10px;padding-bottom: 10px;padding-left: 5px; }
+.col-md-3 a:hover {  background-color: rgb(49, 97, 202); color: white; }
+
+.dropdown3-content3 {font-size: 15px; display: none; position: absolute; width: 20%; background-color: white; color: black; z-index: 1;}
+.dropdown3:hover .dropdown3-content3 { display: block; }
+
+.dropdown-item{ float: none; color: black !important; text-decoration: none; display: block; border-bottom: 1px solid gray; padding-top: 10px;padding-bottom: 10px;padding-left: 5px;  }
+.dropdown-item:hover {  background-color: rgb(49, 97, 202); color: white !important; }
+.panel-header1{ width: 105px !important;}
+
+@media (min-width: 992px) {
+.mobile-dropdown{ display: none !important}
+.nav-service{ display: block !important;}
+.nav-item a button{ border: none; outline: none;  background-color: inherit;  color: white;}
+.dropdown-content { display: none; position: absolute; background-color: #f9f9f9; width: 100%; left: 0; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+.dropdown:hover .dropdown-content { display: block; }
+.lnk_order_now1 { background: #ffbf10; overflow: hidden; border-radius: 15px; position: relative; border: solid 1px #ffbf10; }
+}
+
+@media (min-width: 576px) {   
+.nav-service{ display: none;}
+.expansion-panel-content{ background-color: white; }
+.expansion-panel{ background-color: transparent; }
+.panel-header{ width: 125px; height: 48px;background-color: transparent; box-shadow: none ;}
+.panel-header1{ width: 165px; height: 48px;background-color: transparent; box-shadow: none ;}
+}
+
+@media (max-width: 576px) {
+.nav-item a button{ border: none; outline: none;  background-color: inherit;  color: black;}
+  
+.p-1{ margin-top: 10px; margin-bottom: 10px; margin-left: 5px; margin-right: 5px; }
+.nav-service{ display: none;}
+.expansion-panel{ background-color: transparent; box-shadow: none ;}
+
+.panel-header{ width: 125px; height: 48px;background-color: transparent; box-shadow: none ;}
+.panel-header1{ width: 165px; height: 48px;background-color: transparent; box-shadow: none ;}
+.expansion-panel-content{ background-color: white; }
+.nav-item-other{ width: 185px; height: 48px;padding-right: 26px; padding-left: 26px;}
+.mat-expansion-panel-body{ padding: 0px !important; padding-top: 10px !important;}
+.col-sm-6 { padding:0;}
+.col-sm-6 ul li{ list-style: none;}
+.col-sm-6 ul li a{ text-decoration: none; margin: 5px; color: black;}
+
+.lnk_order_now1 {padding-left: 20px; background: #ffbf10; overflow: hidden; border-radius: 15px; position: relative; border: solid 1px #ffbf10;}
+}

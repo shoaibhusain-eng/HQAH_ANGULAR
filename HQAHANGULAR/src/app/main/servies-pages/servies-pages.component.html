@@ -1,0 +1,192 @@
+<!-- <app-title-bar></app-title-bar>
+<app-header></app-header> -->
+
+
+<!-- created_at: "2020-08-24T13:24:54.517Z"
+created_by: 2
+html: "CASE STUDY ASSIGNMENT HELP "
+is_deleted: false
+level: "1"
+meta_data_desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+meta_data_title: "case  studay"
+parent_id: "1"
+status: "Public"
+sub_desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+sub_title: "GET HELP INSTANTLY"
+title: "CASE STUDY ASSIGNMENT HELP "
+title_desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard"
+updated_at: "2020-08-24T15:08:01.381Z"
+__v: 0
+_id: 16 -->
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="service-top-image">
+            <img src="assets/images/library.jpg" alt="Snow" style="width:100%; height: 300px;">
+            <div class="centered">
+                <span class="text-on-image">
+                    {{serviceContent.title}} -
+                </span>
+                <span class="text-on-image2">
+                    SOLVES STUDENTS’ QUERIES SMARTLY
+                </span>
+                <br>
+                <span class="text-on-image3">{{serviceContent.title_desc}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="between-content">
+        <h3>{{ serviceContent.sub_title}}</h3>
+        <span>{{ serviceContent.sub_desc}}</span>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="content-top1">
+                <mat-icon style="    font-size: 34px;margin-right: 15px;">home</mat-icon>
+                <h3> - {{ serviceContent.title}}</h3>
+            </div>
+            <!-- <h3><mat-icon>home</mat-icon>  {{ serviceContent.title}}</h3> -->
+            <hr style="background:black; height: 3px;">
+            <div *ngIf="serviceContent.html" [innerHtml]="transform(serviceContent.html)">
+
+            </div>
+
+
+            <div class="row changes-box">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Why Choose Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">24 * 7 Availability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                aria-controls="contact" aria-selected="false">HQAH Features</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <img src="assets/images/why_choose_us.png" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <img src="assets/images/247.png" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <img src="assets/images/HQAH_features.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="serviceContent.html2" [innerHtml]="transform(serviceContent.html2)">
+
+            </div>
+
+            <img *ngIf="serviceContent.banner_image" id="blah" [src]="bannerImageSrc || 'http://placehold.it/180'" alt="{{serviceContent.banner_image_meta_title}}" width="100%">
+
+            <div *ngIf="serviceContent.html3" [innerHtml]="transform(serviceContent.html3)">
+
+            </div>
+
+        </div>
+        <div class="col-sm-4 mobile-mob-margin">
+            <form action="">
+                <mat-card class="form-bg">
+                    <mat-card-content>
+                        <mat-card-title class="form-title">Order Now</mat-card-title>
+                        <hr class="mini-order-hr">
+                        <mat-form-field class="order-fields" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput autocomplete="off">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="order-fields" appearance="outline">
+                            <mat-select placeholder="Subject*">
+                                <mat-option value="">Select Subject</mat-option>
+                                <mat-option *ngFor="let sub of subjectList" value={{sub.subValue}}>{{sub.subTitle}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="order-fields" appearance="outline">
+                            <input matInput [owlDateTime]="dt2" placeholder="Date Time" [owlDateTimeTrigger]="dt2"
+                                autocomplete="off">
+                            <owl-date-time #dt2></owl-date-time>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="order-fields" appearance="outline">
+                            <mat-select placeholder="WordCount*">
+                                <mat-option value="">Select Page Count</mat-option>
+                                <mat-option *ngFor="let page of wordCount" value="{{page.countValue}}">
+                                    {{page.countTitle}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button mat-flat-button color="primary">Submit</button>
+                    </mat-card-content>
+                </mat-card>
+            </form>
+            <div id="carouselExampleIndicators" class="carousel slide slide-discount-banner" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 discount-img" src="assets/images/discount1.png" alt="First slide">
+                        <button class="btn-onslide-img order-button" mat-flat-button color="primary">ORDER NOW</button>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 discount-img" src="assets/images/discount2.png" alt="Second slide">
+                        <button class="btn-onslide-img order-button" mat-flat-button color="primary">ORDER NOW</button>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 discount-img" src="assets/images/discount3.png" alt="Third slide">
+                        <button class="btn-onslide-img order-button" mat-flat-button color="primary">ORDER NOW</button>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="other-services">
+                <h4>Other Services</h4>
+                <ul>
+                    <li>Network Assignment Help</li>
+                    <li>HRM Assignment Help</li>
+                    <li>Homework Help</li>
+                    <li>Programming Assignment Help</li>
+                    <li>IT Assignment Help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="footer-banner">
+               
+                <h5 style="display: flex;"><span> <mat-icon>apps</mat-icon></span> across 1 Million Assignment Samples for Free</h5>
+                <a>
+               Explore MASS
+                <mat-icon>arrow_right_alt</mat-icon>
+            </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

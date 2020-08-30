@@ -1,0 +1,26 @@
+.logo_wrapper { text-align: center; display: inline-block; }
+.logo_wrapper a { color: white; }
+.logo_wrapper a:hover { color: #ffbf10; text-decoration: none; }
+.hqah { vertical-align: middle; position: relative; background-clip: content-box;transition: 1s;}
+.media:hover .hqah { transform: rotate(360deg);}
+
+.media{ width: 510px;}
+.media img{ width: 100px;}
+.media .media-body{ padding-top: 35px;}
+
+.seven-cols { margin-left: 20px; margin-right: 20px;  }
+.seven-cols img {  width: 62px; border-radius: 50%; padding: 5px; margin-left: 30px;
+} 
+.services-counntries{ margin: 0px;  text-align: center;}
+.mat-button{ padding: 3px; color: black;background-color: transparent; width: 120px; padding-left: 20px;}
+
+
+   
+@media (max-width: 568px){ 
+  .media{ width: 300px;}
+  .media .media-body{ padding-top: 15px;}
+}
+
+
+
+  

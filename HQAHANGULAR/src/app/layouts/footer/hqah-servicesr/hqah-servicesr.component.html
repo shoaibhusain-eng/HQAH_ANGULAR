@@ -1,0 +1,78 @@
+<div class="container text-center margin-t-40">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="logo_wrapper">
+                    <a href="#">
+                    <div class="media">
+                        <img class="align-self-center mr-2 hqah" src="/assets/images/logo/Letter H Orange.png"
+                            alt="High Quality Assinment Help">
+                        <div class="media-body">
+                            <h4>HIGH QUALITY ASSIGNMENT HELP</h4>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center seven-cols padding-b-30 margin-t-30">
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols"><img src="assets/images/country-flag/austrakia-flag.jpg" width="100%">
+                <br>
+                <button mat-button [matMenuTriggerFor]="australia">Australia <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #australia="matMenu">
+                    <mat-option *ngFor="let ast of Australia" [value]="ast.code">{{ast.name}}</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols "> <img src="assets/images/country-flag/uk-flag.jpg"
+                    width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="uk">UK <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #uk="matMenu">
+                    <mat-option>Select</mat-option>
+                    <mat-option>One</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols" > <img
+                    src="assets/images/country-flag/new-zealand-flag.png" width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="newZealand">New Zealand <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #newZealand="matMenu">
+                    <mat-option>Select</mat-option>
+                    <mat-option>One</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols "> <img src="assets/images/country-flag/usa-flag.jpg"
+                    width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="usa">USA <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #usa="matMenu">
+                    <mat-option *ngFor="let usa of USA" [value]="usa.code">{{usa.name}}</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols "> <img src="assets/images/country-flag/canada-flag.jpg"
+                    width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="canada">Canada <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #canada="matMenu">
+                    <mat-option>Select</mat-option>
+                    <mat-option>One</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols "> <img src="assets/images/country-flag/malaysia-flag.jpg"
+                    width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="malaysia">Malaysia <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #malaysia="matMenu">
+                    <mat-option *ngFor="let mal of Malasiya" [value]="mal.code">{{mal.name}}</mat-option>
+                </mat-menu>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-lg-1 seven-cols "><img src="assets/images/country-flag/uae-flag.jpg"
+                    width="100%"> <br>
+                <button mat-button [matMenuTriggerFor]="uae">UAE <i class="material-icons"> keyboard_arrow_down</i></button>
+                <mat-menu #uae="matMenu">
+                    <mat-option>Select</mat-option>
+                    <mat-option>One</mat-option>
+                </mat-menu>
+            </div>
+       
+    </div>

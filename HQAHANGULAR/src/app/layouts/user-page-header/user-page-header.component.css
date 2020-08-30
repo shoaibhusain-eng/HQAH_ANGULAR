@@ -1,0 +1,17 @@
+.example-icon { padding: 0 30px; }
+
+.example-spacer { flex: 1 1 auto; }
+button.mat-menu-trigger.mat-icon-button.mat-button-base,
+button.mat-menu-item { outline: none; }
+i.fa.fa-user { font-size: 20px; }
+a.navbar-right-menu { display: none; }
+a.nav-link { display: inline-flex; color: black !important; }
+li.nav-item { padding: 8px; }
+.sticky.is-sticky { position: fixed; left: 0; right: 0; top: 0; z-index: 1000; width: 100%; }
+
+@media only screen and (max-width: 988px) {
+    .example-icon,
+    .mat-flat-button { display: none; }
+    a.navbar-right-menu { display: block; }
+.add-assignment { margin-left: auto; padding-right: 25px; }
+}

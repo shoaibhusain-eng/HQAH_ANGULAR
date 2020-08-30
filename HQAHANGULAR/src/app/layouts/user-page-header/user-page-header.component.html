@@ -1,0 +1,85 @@
+<mat-toolbar color="primary">
+
+    <mat-toolbar-row>
+        <span>
+            <a routerLink="/home">
+                <img width="80px" src="/assets/images/logo/High Quality Assignment Help Orange Logo.png">
+            </a>
+        </span>
+        <span class="example-spacer"></span>
+        <button mat-flat-button color="warn">
+            <mat-icon>add_circle</mat-icon> New Assignment
+        </button>
+        <mat-icon title="Wallet" class="example-icon" aria-hidden="false" aria-label="Example heart icon">
+            account_balance_wallet</mat-icon>
+        <mat-icon title="Library" class="example-icon" aria-hidden="false" aria-label="Example delete icon">
+            library_books</mat-icon>
+        <mat-icon title="Message" class="example-icon" aria-hidden="false" aria-label="Example delete icon">message
+        </mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+            (click)="menuTrigger.openMenu()">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <span (mouseleave)="menuTrigger.closeMenu()">
+                <button mat-menu-item>
+                    <mat-icon>home</mat-icon>
+                    <span>Home</span>
+                </button>
+                <button routerLink="/user/profile" mat-menu-item>
+                    <mat-icon>people_outline</mat-icon>
+                    <span>My Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>money</mat-icon>
+                    <span>My Finance</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </span>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" data-toggle="sticky-onscroll">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-bran navbar-right-menu add-assignment" title="Add Assignment">
+        <mat-icon>add_circle</mat-icon>
+    </a>
+    <a class="navbar-bran navbar-right-menu" title="Wallet">
+        <mat-icon>account_balance_wallet</mat-icon>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/assignment-order">
+                    <mat-icon class="icon-item">assignment</mat-icon>
+                    Assignment Order
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/wallet">
+                    <mat-icon class="icon-item">account_balance_wallet</mat-icon>
+                    My Wallet
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/offer">
+                    <mat-icon class="icon-item">local_offer</mat-icon>
+                    My Offer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/notification">
+                    <mat-icon class="icon-item">notification_important</mat-icon>
+                    My Notification
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

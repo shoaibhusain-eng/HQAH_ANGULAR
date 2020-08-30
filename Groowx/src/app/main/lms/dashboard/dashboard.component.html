@@ -1,0 +1,124 @@
+<div id="lms-dashboard" class="page-layout simple left-sidebar inner-sidebar inner-scroll">
+
+    <mat-toolbar class="p-0 mat-elevation-z1 mat-toolbar1">
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+
+            <div class="px-8 px-md-16">
+                <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/apps/e-commerce/products'">
+                        <mat-icon>arrow_back</mat-icon>
+                    </button>
+
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        people
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        LMS
+                    </span>
+                    <mat-icon class="logo-icon s-24 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        navigate_next
+                    </mat-icon>
+                    <span class="logo-text h3" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        Dashboard
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </mat-toolbar>
+
+    <mat-toolbar class="p-0 mat-elevation-z1 mat-toolbar2">
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+            <div class="px-8 px-md-16">
+                <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                        account_circle
+                    </mat-icon>
+                    <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                        LMS
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="tab-separator"></div> -->
+            <div class="px-8 px-md-8">
+                <!-- <div class="filter-weapper mt-2 mt-sm-0">
+                    <mat-label>Filter By</mat-label>
+                    <mat-select [(value)]="selectedColumn" class="select_filter mat-select-trigger1">
+                        <mat-option [value]="''"> Uncategorized</mat-option>
+                        <mat-option *ngFor="let DC of displayedColumns1" [value]="DC">{{DC}}</mat-option>
+                    </mat-select>
+                </div> -->
+            </div>
+        </div>
+        <!-- <div class="tab-separator"></div> -->
+        <div class="ml-sm-8" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+            <!-- <div class="search-wrapper mt-2 mt-sm-0">
+                <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon>search</mat-icon>
+                    <input (keyup)="filterTable($event.target.value)" placeholder="Search Service">
+                </div>
+            </div> -->
+        </div>
+
+        <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+            <div class="px-8 px-md-16">
+                <!-- <button mat-raised-button (click)="addService()" class="add-product-button fuse-white mt-24 mt-md-0 primary">
+                    <mat-icon>add_circle </mat-icon><span> ADD NEW SERVICE</span>
+                </button> -->
+
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <mat-table matSort (matSortChange)="sortData($event)" *ngIf="dataSource" class="service-table" #table
+            [dataSource]="dataSource.orders" [@animateStagger]="{value:'50'}" fusePerfectScrollbar matSortDisableClear>
+
+            <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol.alias}}">
+
+                <mat-header-cell [mat-sort-header]="disCol.alias" *matHeaderCellDef>
+                    {{disCol.title | titlecase}}
+                </mat-header-cell>
+
+                <mat-cell mat-cell *matCellDef="let element; let i = index;">
+                    <p *ngIf="isRightColumn(disCol.alias)" class="text-truncate"> {{element[disCol.alias]}}</p>
+                    <p *ngIf="disCol.alias === 'sno'" class="text-truncate"> {{i + 1}}</p>
+                    <!-- <p *ngIf="disCol.alias === 'created_by'" class="text-truncate">
+                        {{element[disCol.alias]['first_name']}} {{element[disCol.alias]['last_name']}}</p> -->
+                    <p *ngIf="disCol.alias === 'due_date'" class="text-truncate">
+                        {{element[disCol.alias] | date: 'short'}}</p>
+
+                    <!-- <p *ngIf="disCol.alias === 'status'" class="text-truncate">
+                        <mat-slide-toggle [checked]="element.status === 'Public' ? true : false"
+                            (change)="changeStatus(element)"></mat-slide-toggle>
+                    </p> -->
+
+                    
+                    <p *ngIf="disCol.alias === 'action'" class="text-truncate">
+                        <mat-icon (click)="editService(element)" class="edit-icon action-icon s-16 bg-dark">
+                            edit
+                        </mat-icon>
+                        <mat-icon (click)="deleteService(element)" class="action-icon s-16 bg-dark">delete
+                        </mat-icon>
+                    </p>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns1; sticky:true"></mat-header-row>
+            <mat-row *matRowDef="let element; columns: displayedColumns1;" class="service-table" matRipple>
+            </mat-row>
+        </mat-table>
+
+        <mat-paginator *ngIf="dataSource" [length]="dataSource.totalRecords" [pageIndex]="dataSource.currentPage"
+            [pageSize]="dataSource.limit" [pageSizeOptions]="[5, 10, 15, 20]" (page)="getNextPage($event)">
+        </mat-paginator>
+
+
+
+    </div>
+    <!-- / CENTER -->
+
+
+</div>

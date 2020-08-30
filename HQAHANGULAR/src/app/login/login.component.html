@@ -1,0 +1,90 @@
+
+<app-header></app-header>
+<section class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5" style="margin-top: 50px;">
+          <h2 class="text-center">Login Now</h2>
+          <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase">Email</label>
+              <input formControlName="email" type="text" class="form-control" [ngClass]="{ 'input-error': submitted && fc.email.errors }" placeholder="Email Address">
+              <p *ngIf="submitted && fc.email.errors?.required">Please enter Email Address</p>
+              <p *ngIf="submitted && fc.email.errors?.email">Please enter Valid Email Address</p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+              <input formControlName="password" type="password" class="form-control" placeholder="Password" [ngClass]="{ 'input-error': submitted && fc.password.errors }">
+              <p *ngIf="submitted && fc.password.errors?.required">Please enter Password</p>
+            </div>
+  
+            <!-- <div class="form-check"> -->
+              <!-- <label class="form-check-label"> -->
+                <!-- <input type="checkbox" class="form-check-input"> -->
+                <span style="font-size: small;"> <a routerLink="/forgot-password">Forgot Password</a></span>
+             
+            <br>
+            <button type="submit" class="btn btn-login float-left" style="width: 100%;">Login</button>
+            <br>
+
+            <i class="d-block text-center or-fb-google p-relative">or</i>
+            <div style="text-align: center;">
+                <a class="fb btn">
+                  <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                 </a>&nbsp;
+                <a class="google btn"><i class="fa fa-google fa-fw">
+                </i> Login with Google+
+              </a>
+            </div>
+            <span class="dont-have">Don't have an account? Click here to <a routerLink="/signup">Sign Up</a></span>
+          </form>
+        </div>
+        <div class="col-md-7 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="/assets/images/login-slide1.jpg"
+                  alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is Heaven</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="/assets/images/login-slide2.jpg"
+                  alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is Heaven</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="/assets/images/login-slide1.jpg"
+                  alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>This is Heaven</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<app-footer></app-footer>

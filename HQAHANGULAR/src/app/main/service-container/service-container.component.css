@@ -1,0 +1,24 @@
+/* .service-container{
+    background-color: rgb(158, 25, 25);
+} */
+
+.services  ul li { list-style: none;}
+
+.btn { width: 200px; margin-top: 10px; }
+
+
+
+
+.containerh {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .text-block {
+    position: absolute;
+    top: 220px;
+    left: 120px;
+    /* background-color: black; */
+    color: white;
+    width: 320px;
+  }

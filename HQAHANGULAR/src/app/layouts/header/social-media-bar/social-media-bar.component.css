@@ -1,0 +1,120 @@
+.header-top {
+    display: block;
+    /* // background: #211d1e; */
+    background-color: black;
+  }
+  
+  .header-top ul.follow-us {
+    display: block;
+    padding-top: 10px;
+    float: left;
+    padding-left: 0px;
+  }
+  
+  .header-top ul.follow-us li {
+    display: inline-block;
+    padding-right: 10px;
+  }
+  
+  .fa {
+      display: inline-block;
+      color: white;
+      padding: 5px;
+      font-size: 12px;
+      width: 22px;
+      text-align: center;
+      text-decoration: none;
+      /* // margin: 2px 2px; */
+      border-radius: 10%;
+      height: 22px;
+  }
+  
+  .fa-facebook {
+    background: white;
+    color: #3B5998;
+   }
+  
+  .fa-facebook:hover {
+   background: #3B5998;
+   color: white; 
+  }
+  
+   
+  .fa-twitter {
+    background: white;
+    color: #55ACEE;
+  }
+   
+  .fa-twitter:hover {
+     background: #55ACEE;
+     color:  white;    
+   }
+  
+  .fa-linkedin {
+     background: white;
+     color: #007bb5;
+   }
+   .fa-linkedin:hover {
+     background: #007bb5;
+     color: white;
+   }
+  
+   .fa-youtube-play {
+    background: white;
+    color: #bb0000;
+  }
+  .fa-youtube-play:hover {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram{
+    color: #d6249f;
+    color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    background: white;
+  
+  }
+  
+  .fa-instagram:hover {
+    background:#d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    color: white;
+  }
+  
+  .header-top .right-block {
+    display: block;
+    float: right;
+  }
+  
+  .header-top ul.top-nav {
+    display: block;
+    padding-top: 15px;
+    float: left;
+    padding-left: 0px;
+  }
+  .no-padding-r {
+    padding-right: 0!important;
+  }
+  
+  .header-top ul.top-nav li {
+    display: block;
+    padding: 0 8px;
+    float: left;
+    font-size: 11px;
+    font-weight: 700;
+    padding-left: 0px;
+    text-transform: uppercase;
+  }
+  
+  .header-top ul.top-nav li a {
+    color: #cecece;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,6 @@
+.copyright{ background-color: rgb(41, 40, 40) }
+.copyright .contant{ padding: 10px; }
+.copyright p{ color: gray; }
+.copyright ul li{ list-style-type: none; color: gray; }
+.fa-map-marker ,.fa-whatsapp{ padding: 10px; padding-left: 0px; }
+.copyright ul li a{ color: gray }

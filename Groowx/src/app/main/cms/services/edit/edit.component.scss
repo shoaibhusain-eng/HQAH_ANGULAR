@@ -1,0 +1,142 @@
+@import "src/@fuse/scss/fuse";
+
+
+#service-edit {
+
+//     .tmp-select .mat-form-field-flex {
+//     width: 200px ;
+//     background-color: #039BE5 !important;
+//     margin: 10px;
+//     border-radius: 4%;
+//     float: right !important;
+// }
+
+// .tem-button button{
+//     background: #039BE5 !important;
+//     margin: 8px;
+//     float: right;
+// }
+  
+    .primary{
+        background-color: #039BE5 !important;
+    }
+
+  
+    .mat-toolbar1 {
+        position: relative;
+        background: #039be5;
+        color: inherit;
+    } 
+    .mat-toolbar2 {
+        position: relative;
+        background:white ;
+        color: inherit;
+    }    
+    
+    .tab-separator {
+        height: 30px;
+        width: 2px;
+        background-color: rgb(184, 189, 189);
+        }
+    
+    
+    .header {
+
+        .filter-weapper
+        {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+                @include mat-elevation(1);
+
+        }
+
+    
+        
+        .search-wrapper {
+            width: 100%;
+            max-width: 150px;
+            overflow: hidden;
+            @include mat-elevation(1);
+
+            .search {
+                width: 100%;
+                height: 48px;
+                line-height: 48px;
+                padding: 0 18px;
+
+                input {
+                    width: 100%;
+                    height: 48px;
+                    min-height: 48px;
+                    max-height: 48px;
+                    padding: 0 16px;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+
+    .service-table {
+        overflow: hidden;
+       
+        .sidebar {
+
+            &:not(.locked-open) {
+                background: white;
+            }
+        }
+    }
+
+
+
+    
+    .edit-icon {
+        margin-right: 9px;
+    }
+
+    .action-icon {
+        zoom: 1.2;
+        cursor: pointer;
+    }
+
+    .mat-mini-fab.mat-primary {
+        background-color: #8d8e94;
+    }
+
+    .header-url-based {
+        background: #e2e2e2;
+        padding: 10px;
+    }
+
+
+    .mat-select-trigger1
+    {
+    border: 2px solid gray;
+    margin: auto;
+    padding: 2px;
+    margin-left: 10px;
+    max-width: 100%;
+    width: 180px;
+    text-align: center;
+    
+    }
+
+
+mat-table{
+    background-color: transparent;
+}
+mat-paginator{
+    background-color: transparent;
+}
+.content {
+    background: transparent; 
+    box-shadow:none ;
+}
+   
+}
+
+
+
